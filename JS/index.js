@@ -267,6 +267,7 @@
 // console.log(country.getDencity());
 // country.population += 1000000;
 // console.log(country.getDencity());
+
 // Example KETTLE
 // function Kettle(maxVolume) {
 //   this.maxVolume = maxVolume;
@@ -388,8 +389,186 @@
 // };
 // getUserSecretNum();
 
-const obj1 = {
-  prop: 1,
-};
-const obj2 = obj1;
-console.log((obj2.prop = "hi"));
+// function MyArray() {
+//   this.length = 0;
+//   for (let i = 0; i < arguments.length; i++) {
+//     this.push(arguments[i]);
+//   }
+// }
+// function MyArrayPrototype() {
+//   this.push = function (element) {
+//     this[this.length] = element;
+//     return ++this.length;
+//   };
+//   this.pop = function () {
+//     if (this.length === 0) {
+//       return;
+//     }
+//     const lastElem = this[--this.length];
+//     delete this[this.length];
+//     return lastElem;
+//   };
+// }
+
+// MyArray.prototype = new MyArrayPrototype();
+// const myArray = new MyArray(1, 2, 3, 4,22, 5);
+// myArray.push(11);
+// myArray.push(14);
+// console.log(myArray);
+
+// function Accumulator() {
+//   this.maxCharge = 100;
+//   this.minCharge = 0;
+// }
+
+// function AccumulatorPrototype() {
+//   this.chargeBattary = function (value) {
+//     if (this.minCharge + value <= this.maxCharge) {
+//       this.minCharge += value;
+//       return this.minCharge;
+//     }
+//   };
+//   this.rechergeBattary = function (value) {
+//     if (this.minCharge - value >= 0) {
+//       this.maxCharge = value;
+//       return this.minCharge;
+//     }
+//   };
+// }
+// Accumulator.prototype = new AccumulatorPrototype();
+// const accumulator = new Accumulator(1000);
+// console.log(accumulator);
+// accumulator.chargeBattary(200);
+// console.log(accumulator);
+
+// const animal = {
+//   eat: function () {
+//     return this.name + " eat";
+//   },
+//   go: function () {
+//     return (this.name ? this.name : "i'm") + " go";
+//   },
+// };
+// const man = {
+//   dancing: function () {
+//     return this.name + " dancing";
+//   },
+//   __proto__: animal,
+//   toString: function () {
+//     return this.name + " " + this.sname;
+//   },
+// };
+// const user = {
+//   name: "Vlad",
+//   sname: "Korochanskiy",
+//   __proto__: man,
+// };
+
+// const rabbit = {
+//   eat: function () {
+//     return (this.name ? this.name : "i'm") + " eat";
+//   },
+//   jump: function () {
+//     return (this.name ? this.name : "i'm") + " go";
+//   },
+// };
+
+//ЛИТЕРАЛЬНО ПРОТОТИПИРОВАЛИ
+// const rabbitPet = {
+//   name: "Casper",
+//   petMe() {
+//     return "погладь меня!";
+//   },
+//   __proto__: rabbit,
+// };
+// const rabbitMagic = {
+//   say() {
+//     return this.name + " say" + " морковку";
+//   },
+//   __proto__: rabbitPet,
+// };
+// const rabbit = {
+//   eat: function () {
+//     return (this.name ? this.name : "i'm") + " eat";
+//   },
+//   jump: function () {
+//     return (this.name ? this.name : "i'm") + " go";
+//   },
+// };
+
+//С ПОМОЩЬЮ КОНСТРУКТОРА!
+// function Rabbit() {
+//   (this.go = function () {
+//     return (this.name ? this.name : "i'm") + " go";
+//   }),
+//     (this.jump = function () {
+//       return (this.name ? this.name : "i'm") + " jump";
+//     });
+// }
+
+// function RabbitPet(name) {
+//   this.name = name;
+//   this.petMe = function () {
+//     return "погладь меня!";
+//   };
+// }
+// RabbitPet.prototype = new Rabbit();
+
+// function RabbitMagic(name) {
+//   this.name = name;
+
+//   this.say = function () {
+//     return this.name +" say" + " морковку";
+//   };
+// }
+// RabbitMagic.prototype = new RabbitPet();
+
+// const rabbit = new RabbitMagic("sasd");
+
+// function Ladder() {
+//   this.step = 0;
+// }
+
+// function LadderStep() {
+//   this.up = function () {
+//      this.step++;
+//      return this;
+//   };
+//   this.down = function () {
+//     this.step--;
+//     return this;
+//   };
+//   this.showStep = function () {
+//     return this.step;
+//   };
+// }
+// Ladder.prototype = new LadderStep();
+// const ladder = new Ladder();
+// console.log(ladder.up().up().up().down().showStep());
+
+// function getRandomArbitrary(min, max) {
+//   return Math.random() * (max - min) + min;
+// }
+// const arr1 = [];
+// const amount = 10;
+// const min = -10;
+// const max = 10;
+
+// for (let i = 0; i < amount; i++) {
+//   arr1.push(Math.round(getRandomArbitrary(min, max)));
+// }
+
+// console.log(arr1);
+
+// const evenArr = arr1.filter(isEven);
+// const oddArr = arr1.filter(isOdd);
+
+// function isEven(element) {
+//   return element % 2 === 0;
+// }
+// console.log(evenArr);
+
+// function isOdd(element) {
+//   return element % 2 === 1;
+// }
+// console.log(oddArr);
