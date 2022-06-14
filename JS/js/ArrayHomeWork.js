@@ -126,3 +126,4 @@
 // });
 // result = result / arr.length;
 // console.log(result);
+
