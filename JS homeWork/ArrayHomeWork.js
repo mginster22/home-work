@@ -100,7 +100,7 @@ const getArray10RandomNum = function (min, max, amount) {
   return array;
 };
 console.log(getArray10RandomNum(5, 33, 10));
-// 5. Дан массив arr. Найдите среднее арифметическое его элементов.
+// 5. Дан массивarr. Найдите среднее арифметическое его элементов.
 // Проверьте задачу на массиве с элементами 12, 15, 20, 25, 59, 79.
 
 const getArifmeticMean = function (arr) {
