@@ -572,3 +572,389 @@
 //   return element % 2 === 1;
 // }
 // console.log(oddArr);
+
+"use strict";
+
+// const site = {
+//   title: "green site",
+//   headers: ["Header 1", "Header 2", "Header 3"],
+//   showHeaers() {
+//     console.log(this);
+//     this.headers.forEach((header) => {
+//       console.log(`${header} | ${this.title}`);
+//     });
+//   },
+// };
+// site.showHeaers();
+
+// const sumNum = (...num) => num.reduce((acum, vol) => acum + vol);
+// console.log(sumNum(2, 4));
+
+// const arrNumbers = [1, 2];
+
+// sumNum(...arrNumbers)
+
+// const vowelsLeters = ["a", "e", "o"];
+// const nonVowelsLetters = ["b", "c", "d"];
+// const result = [...vowelsLeters, ...nonVowelsLetters];
+// console.log(result);
+
+// const factorial = (num, pow) => {
+//   if (pow === 0) {
+//     return 1;
+//   }
+//   return num * factorial(num, pow - 1);
+// };
+// console.log(factorial(2, 4));
+
+// const sum = (...arg) => arg.reduce((value, num) => value + num);
+// const arr = [1, 2];
+// console.log(sum(...arr));
+
+// const obj = {
+//   showArgs(a, b, ...c) {
+//     console.log(c);
+//     c.forEach((elem) => console.log(this));
+//   },
+// };
+// obj.showArgs(1,2,10,20,30)
+
+//Lastname F.
+// const re = /First Lastname/gi;
+// const str = "First Lastname";
+// const newStr = str.replace(re, "Lastname F.");
+// console.log(newStr);
+
+// const str = "First Lastname";
+
+// const newStr = (str, re = /First Lastname/gi) => {
+//   return str.replace(re, "Lastname F.");
+// };
+// console.log(newStr(str));
+
+// //Korochanksiy V.
+
+// const fullName = "vlad korochanskiy";
+// const getFullName = (string, separator = " ") => {
+//   const getArrReversFullName = string
+//     .split(separator)
+//     .reverse()
+//     .map((word) => word.at(0).toUpperCase() + word.slice(1));
+//   return (
+//     getArrReversFullName.shift() +
+//     " " +
+//     getArrReversFullName.map((word) => word.at(0) + ".").join()
+//   );
+// };
+
+// console.log(getFullName(fullName));
+
+//OLD SYNTAX
+// function User(fname, sname, age) {
+//   this.fname = fname;
+//   this.sname = sname;
+//   this.age = age;
+//   User.count++; //статаческое свойство
+// }
+// User.count = 0;
+// User.createTestUser = () => new User("Anonim", "Anonimus");
+// function UserPrototype() {
+//   this.getFullName = () => `${this.fname} ${this.sname}`;
+// }
+// User.prototype = new UserPrototype();
+// const user1 = new User("Elon", "Musk", 50);
+// console.log(user1);
+// const user2 = new User("Elon", "Musk", 50);
+// const user3 = new User("Elon", "Musk", 50);
+
+//NEW SYNTAX
+// class Woker {
+//   constructor(fname, sname, rate, days, age) {
+//     this.fname = fname;
+//     this.sname = sname;
+//     this.days = days;
+//     this.rate = rate;
+//     this.age = age;
+//     Woker.count++;
+//     Woker.isWoker;
+//     Woker.createTestUser;
+//   }
+//   getSalary = () => this.rate * this.days;
+//   get age() {
+//     return this._age;
+//   }
+//   set age(age) {
+//     if (typeof age !== "number") {
+//       throw new TypeError("Age must be number");
+//     }
+//     if (age < 0 || age > AGE_MAX) {
+//       throw new RangeError("Age must be 0.." + AGE_MAX);
+//     }
+//     this._age = age;
+//   }
+//   get days() {
+//     return this._days;
+//   }
+//   set days(days) {
+//     if (typeof days !== "number") {
+//       throw new TypeError("Hey,Days,must be number");
+//     }
+//     if (days < 1 || days > DAYS_WORK) {
+//       throw new RangeError("Hey,work days must be 1.." + DAYS_MAX);
+//     }
+//     this._days = days;
+//   }
+//   static count = 0;
+//   static createTestUser() {
+//     return new Woker("Anonim", "Anonimus", 15, 15, 15);
+//   }
+//   static isWoker(obj) {
+//     return obj instanceof Woker;
+//   }
+// }
+
+// class Fuel {
+//   constructor(volume, dencity) {
+//     this.volume = volume;
+//     this.dencity = dencity;
+//   }
+//   get volume() {
+//     return this._volume;
+//   }
+//   set volume(volume) {
+//     if (typeof volume !== "number") {
+//       throw new TypeError("volume must be number");
+//     }
+//     if (volume < 0 || volume > 40) {
+//       throw new RangeError("volume must be 0...40");
+//     }
+//     this._volume = volume;
+//   }
+//   get dencity() {
+//     return this._dencity;
+//   }
+//   set dencity(dencity) {
+//     if (typeof dencity !== "number") {
+//       throw new TypeError("dencity must be number");
+//     }
+//     if (dencity < 0.65 || dencity > 0.85) {
+//       throw new RangeError("dencity must be 0.65....0.85");
+//     }
+//     this._dencity = dencity;
+//   }
+//   get weight() {
+//     return this._volume * this._dencity;
+//   }
+//   static isFuel(obj) {
+//     return obj instanceof Fuel;
+//   }
+// }
+
+// class Auto {
+//   #model;
+//   constructor(model, ownWeight) {
+//     this.#model = model;
+//     this.ownWeight = ownWeight;
+//   }
+//   get ownWeight() {
+//     return this._ownWeight;
+//   }
+//   set ownWeight(ownWeight) {
+//     if (typeof ownWeight !== "number") {
+//       throw new TypeError("Ownweight must be number");
+//     }
+//     if (typeof ownWeight < 1500 || ownWeight > 2000) {
+//       throw new RangeError("Ownweight must be 1500...2000");
+//     }
+//     this._ownWeight = ownWeight;
+//   }
+//   getFullWeight(objFuel) {
+//     return this._ownWeight + objFuel.weight;
+//   }
+// }
+
+// class Animal {
+//   #type;
+//   constructor(name, type, countOfLegs) {
+//     this.name = name;
+//     this.#type = type;
+//     this.countOfLegs = countOfLegs;
+//   }
+//   get countOfLegs() {
+//     return this.countOfLegs;
+//   }
+//   set countOfLegs(countOfLegs) {
+//     if (countOfLegs < 0 || countOfLegs > 4) {
+//       throw new RangeError();
+//     }
+//     this._countOfLegs = countOfLegs;
+//   }
+//   eat() {
+//     return `${this.name} is eating`;
+//   }
+//   static isAnimal(obj) {
+//     return obj instanceof Animal;
+//   }
+// }
+
+// class User {
+//   constructor(fname, lname) {
+//     this.fname = fname;
+//     this.lname = lname;
+//     this._isBan = false;
+//   }
+//   getFullName() {
+//     return `${this.fname} ${this.lname}`;
+//   }
+//   static isUser(obj) {
+//     return obj instanceof User;
+//   }
+//   get isBan() {
+//     return this._isBan;
+//   }
+// }
+
+// class Moderator extends User {
+//   constructor(fname, lname, permisson) {
+//     super(fname, lname);
+//     this.permisson = permisson;
+//   }
+// }
+
+// class Admin extends Moderator {
+//   constructor(fname, lname, permisson) {
+//     super(fname, lname, permisson);
+//   }
+//   ban(obj) {
+//     if (User.isUser(obj) === false) {
+//       throw new TypeError("must be user!");
+//     }
+//     obj._isBan = true;
+//   }
+//   unBan(obj) {
+//     if (User.isUser(obj) === false) {
+//       throw new TypeError("must be user!");
+//     }
+//     obj._isBan = false;
+//   }
+// }
+
+// class Squirrel {
+//   constructor(name, color) {
+//     this.name = name;
+//     this.color = color;
+//   }
+//   jump() {
+//     return `${this.name} is jumping`;
+//   }
+// }
+
+// class FlySquirel extends Squirrel {
+//   constructor(name, color, maxDistance) {
+//     super(name, color);
+//     this.maxDistance = maxDistance;
+//   }
+//   get maxDistance() {
+//     return this._maxDistance;
+//   }
+//   set maxDistance(value) {
+//     if (value > 90 || value < 70) {
+//       throw new RangeError("error");
+//     }
+//     this._maxDistance = value;
+//   }
+//   fly(dist) {
+//     return `${this.name} is ${
+//       dist > this._maxDistance ? "not" : ""
+//     } flying at ${dist}`;
+//   }
+// }
+
+// class MagicFlySqueriel extends FlySquirel {
+//   constructor(name, color, maxDistance, songs) {
+//     super(name, color, maxDistance);
+//     this.songs = songs;
+//   }
+
+//   songsSign() {
+//     this.songs.forEach((song) => {
+//       console.log(`${this.name} is singing ${song}`);
+//     });
+//   }
+// }
+
+// class Figura {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   getArea() {
+//     return null;
+//   }
+//   static isFigura(obj) {
+//     return obj instanceof Figura;
+//   }
+// }
+
+// class Triangular extends Figura {
+//   constructor(side1, side2, angle) {
+//     super("Triangular");
+//     this.side1 = side1;
+//     this.side2 = side2;
+//     this.angle = angle;
+//   }
+//   getArea() {
+//     return (
+//       ((this.side1 * this.side2) / 2) * Math.sin(this.angle * (180 / Math.PI))
+//     );
+//   }
+// }
+// const tr = new Triangular(12, 12, 45);
+// console.log(tr.getArea());
+
+// class Square extends Figura {
+//   constructor(side) {
+//     super("Square");
+//     this.side = side;
+//   }
+//   getArea() {
+//     return this.side * this.side;
+//   }
+// }
+
+// function calcAreaFigure(figure){
+//   if(Figura.isFigura(figure)===false){
+//     throw new TypeError('must be figure')
+//   }
+//   return figure.getArea()
+// }
+// console.log(calcAreaFigure(tr));
+
+// const arr = [1,2,63];
+// for (const elem of arr) {
+//   console.log(elem);
+// }
+
+// function sum(){
+//   console.log(arguments);
+// }
+// sum(...arr)
+
+// const getRandomNum20 = (min, max, amount) => {
+//   let arr20 = [];
+//   for (let i = 0; i < amount; i++) {
+//     arr20.push(Math.round(Math.random() * (max - min) + min));
+//   }
+//   return arr20
+// };
+
+// const max = getRandomNum20(10,50,20)
+// console.log(max);
+// console.log(Math.max(...max));
+
+// const min = getRandomNum20(10,50,20)
+// console.log(min);
+// console.log(Math.min(...min));
+
+
+
+

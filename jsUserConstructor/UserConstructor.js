@@ -65,18 +65,18 @@ const getFemale = user.map(function (user) {
 
 const getEmail = user
   .filter(function (user) {
-    return user.age < AGE_LIMIT;
+    return user.age > AGE_LIMIT;
   })
   .filter(function (user) {
     return user.isMale === true;
   })
   .filter(function (user) {
-    return user.isSubscribed;
+    return user.isSubscribed === true;
   })
   .map(function (user) {
     return user.email;
   });
-// console.table(getEmail);
+console.table(getEmail);
 
 const getUserFullNameMaleUpTo40 = user
   .filter(function (user) {
@@ -92,4 +92,4 @@ const getUserFullNameMaleUpTo40 = user
     return `${user.fullName()} ${user.email}`;
   });
 
-console.table(getUserFullNameMaleUpTo40);
+// console.table(getUserFullNameMaleUpTo40);
